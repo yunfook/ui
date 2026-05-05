@@ -31,7 +31,6 @@ const components = [
   { to: '/combo/icon-button', label: 'IconButton', description: 'Icon button with animated swap on icon change', combo: true },
   { to: '/combo/form-field', label: 'FormField', description: 'TanStack-Form-bound field with toggle + important variants', combo: true },
   { to: '/combo/data-table', label: 'DataTable', description: 'TanStack-Table + Query — sort, paginate, select, loading/empty', combo: true },
-  { to: '/combo/calendar-rest-days', label: 'CalendarRestDays', description: 'Calendar with toggleable per-weekday rest highlighting', combo: true },
   { to: '/animation/animation1', label: 'Animation1', description: 'Animation experiment', animation: true },
 ] as const
 

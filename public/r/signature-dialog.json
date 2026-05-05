@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signature-dialog",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "dialog",
+    "signature-pad"
+  ],
+  "files": [
+    {
+      "path": "src/components/combo/signature-dialog.tsx",
+      "content": "import * as React from \"react\"\nimport {\n  EraserIcon,\n  Loader2Icon,\n  PenLineIcon,\n  SaveIcon,\n} from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/components/ui/dialog\"\nimport {\n  SignaturePad,\n  type SignaturePadHandle,\n} from \"@/components/ui/signature-pad\"\n\ninterface SignatureDialogProps<T = unknown> {\n  /** Async upload function — receives a PNG Blob, returns whatever your API returns */\n  upload: (blob: Blob) => Promise<T>\n  /** Called with the upload result on success — dialog closes after */\n  onSuccess?: (result: T) => void\n  /** Called when upload throws — dialog stays open with the error message */\n  onError?: (err: Error) => void\n  penColor?: string\n  title?: string\n  description?: string\n  className?: string\n}\n\nfunction SignatureDialog<T = unknown>({\n  upload,\n  onSuccess,\n  onError,\n  penColor = \"black\",\n  title = \"Signature\",\n  description = \"Draw your signature below.\",\n  className,\n}: SignatureDialogProps<T>) {\n  const padRef = React.useRef<SignaturePadHandle>(null)\n  const [open, setOpen] = React.useState(false)\n  const [isEmpty, setIsEmpty] = React.useState(true)\n  const [isUploading, setIsUploading] = React.useState(false)\n  const [error, setError] = React.useState<string | null>(null)\n\n  const reset = () => {\n    padRef.current?.clear()\n    setIsEmpty(true)\n    setError(null)\n  }\n\n  const handleSave = async () => {\n    if (!padRef.current || padRef.current.isEmpty() || isUploading) return\n    const blob = await padRef.current.toBlob()\n    if (!blob) return\n\n    setIsUploading(true)\n    setError(null)\n    try {\n      const result = await upload(blob)\n      onSuccess?.(result)\n      reset()\n      setOpen(false)\n    } catch (err) {\n      const e = err instanceof Error ? err : new Error(String(err))\n      setError(e.message)\n      onError?.(e)\n    } finally {\n      setIsUploading(false)\n    }\n  }\n\n  const handleOpenChange = (next: boolean) => {\n    if (isUploading) return\n    if (!next) reset()\n    setOpen(next)\n  }\n\n  return (\n    <Dialog open={open} onOpenChange={handleOpenChange}>\n      <DialogTrigger\n        render={\n          <Button variant=\"outline\" className={cn(\"gap-2\", className)}>\n            <PenLineIcon className=\"size-4\" />\n            Sign\n          </Button>\n        }\n      />\n      <DialogContent className=\"sm:max-w-lg\">\n        <DialogHeader>\n          <DialogTitle>{title}</DialogTitle>\n          <DialogDescription>{description}</DialogDescription>\n        </DialogHeader>\n\n        <SignaturePad\n          ref={padRef}\n          penColor={penColor}\n          onChange={setIsEmpty}\n        />\n\n        {error && <p className=\"text-sm text-destructive\">{error}</p>}\n\n        <DialogFooter className=\"sm:justify-between\">\n          <Button\n            variant=\"ghost\"\n            size=\"sm\"\n            onClick={reset}\n            disabled={isEmpty || isUploading}\n          >\n            <EraserIcon className=\"size-4\" />\n            Clear\n          </Button>\n          <Button\n            size=\"sm\"\n            onClick={handleSave}\n            disabled={isEmpty || isUploading}\n          >\n            {isUploading ? (\n              <Loader2Icon className=\"size-4 animate-spin\" />\n            ) : (\n              <SaveIcon className=\"size-4\" />\n            )}\n            {isUploading ? \"Saving...\" : \"Save\"}\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n\nexport { SignatureDialog, type SignatureDialogProps }\n",
+      "type": "registry:ui",
+      "target": "components/combo/signature-dialog.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

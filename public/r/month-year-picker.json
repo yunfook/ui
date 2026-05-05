@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "month-year-picker",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "popover",
+    "wheel"
+  ],
+  "files": [
+    {
+      "path": "src/components/combo/month-year-picker.tsx",
+      "content": "import * as React from \"react\"\nimport { CalendarIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\"\nimport { Wheel, ITEM_HEIGHT, VISIBLE_ITEMS } from \"@/components/ui/wheel\"\n\nconst MONTHS = [\n  \"January\",\n  \"February\",\n  \"March\",\n  \"April\",\n  \"May\",\n  \"June\",\n  \"July\",\n  \"August\",\n  \"September\",\n  \"October\",\n  \"November\",\n  \"December\",\n]\n\nconst START_YEAR = 2000\nconst END_YEAR = 2060\nconst MONTH_VALUES = Array.from({ length: MONTHS.length }, (_, i) => i)\nconst YEARS = Array.from(\n  { length: END_YEAR - START_YEAR + 1 },\n  (_, i) => START_YEAR + i\n)\n\ninterface MonthYearPickerProps {\n  month: number\n  year: number\n  onSelect: (month: number, year: number) => void\n  className?: string\n}\n\nfunction MonthYearPickerWheel({\n  month,\n  year,\n  onSelect,\n  onConfirm,\n}: {\n  month: number\n  year: number\n  onSelect: (month: number, year: number) => void\n  onConfirm?: () => void\n}) {\n  const padHeight = Math.floor(VISIBLE_ITEMS / 2) * ITEM_HEIGHT\n  const selectionRef = React.useRef({ month, year })\n\n  React.useEffect(() => {\n    selectionRef.current = { month, year }\n  }, [month, year])\n\n  const handleMonthSelect = (nextMonth: number) => {\n    selectionRef.current = { ...selectionRef.current, month: nextMonth }\n    onSelect(nextMonth, selectionRef.current.year)\n  }\n\n  const handleYearSelect = (nextYear: number) => {\n    selectionRef.current = { ...selectionRef.current, year: nextYear }\n    onSelect(selectionRef.current.month, nextYear)\n  }\n\n  return (\n    <div className=\"relative flex gap-1\">\n      <div\n        className=\"pointer-events-none absolute inset-x-1 z-5 rounded-md bg-muted\"\n        style={{ top: padHeight, height: ITEM_HEIGHT }}\n      />\n      <Wheel\n        items={MONTH_VALUES}\n        value={month}\n        onSelect={handleMonthSelect}\n        renderItem={(i) => MONTHS[i]}\n        onConfirm={onConfirm}\n        className=\"flex-1\"\n      />\n      <Wheel\n        items={YEARS}\n        value={year}\n        onSelect={handleYearSelect}\n        renderItem={(y) => String(y)}\n        onConfirm={onConfirm}\n        className=\"w-20 tabular-nums\"\n      />\n    </div>\n  )\n}\n\nfunction MonthYearPicker({ month, year, onSelect, className }: MonthYearPickerProps) {\n  const [open, setOpen] = React.useState(false)\n  const label = `${MONTHS[month]} ${year}`\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger\n        render={\n          <Button\n            variant=\"outline\"\n            className={cn(\"justify-start gap-2 font-normal\", className)}\n          />\n        }\n      >\n        <CalendarIcon className=\"size-4 text-muted-foreground\" />\n        {label}\n      </PopoverTrigger>\n      <PopoverContent align=\"start\" className=\"w-64 p-2\">\n        <MonthYearPickerWheel\n          month={month}\n          year={year}\n          onSelect={onSelect}\n          onConfirm={() => setOpen(false)}\n        />\n      </PopoverContent>\n    </Popover>\n  )\n}\n\nexport { MonthYearPicker, MonthYearPickerWheel }\nexport type { MonthYearPickerProps }\n",
+      "type": "registry:ui",
+      "target": "components/combo/month-year-picker.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

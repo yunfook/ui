@@ -217,7 +217,7 @@
     {
       "name": "list",
       "type": "registry:ui",
-      "registryDependencies": ["utils"],
+      "registryDependencies": ["utils", "button"],
       "files": [{ "path": "src/components/ui/list.tsx", "type": "registry:ui" }]
     },
     {
@@ -332,6 +332,61 @@
       "type": "registry:ui",
       "registryDependencies": ["utils"],
       "files": [{ "path": "src/components/ui/wheel.tsx", "type": "registry:ui" }]
+    },
+
+    {
+      "name": "confirmation",
+      "type": "registry:ui",
+      "registryDependencies": ["button", "dialog"],
+      "files": [{ "path": "src/components/combo/confirmation.tsx", "type": "registry:ui", "target": "components/combo/confirmation.tsx" }]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "dependencies": ["@tanstack/react-table", "lucide-react"],
+      "registryDependencies": ["utils", "button", "checkbox", "expandable", "table", "list"],
+      "files": [{ "path": "src/components/combo/data-table.tsx", "type": "registry:ui", "target": "components/combo/data-table.tsx" }]
+    },
+    {
+      "name": "form-field",
+      "type": "registry:ui",
+      "registryDependencies": ["checkbox", "field", "form-context"],
+      "files": [{ "path": "src/components/combo/form-field.tsx", "type": "registry:ui", "target": "components/combo/form-field.tsx" }]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "dependencies": ["motion"],
+      "registryDependencies": ["button"],
+      "files": [{ "path": "src/components/combo/icon-button.tsx", "type": "registry:ui", "target": "components/combo/icon-button.tsx" }]
+    },
+    {
+      "name": "install-command",
+      "type": "registry:ui",
+      "dependencies": ["@tanstack/react-router", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/combo/install-command.tsx", "type": "registry:ui", "target": "components/combo/install-command.tsx" }]
+    },
+    {
+      "name": "month-year-picker",
+      "type": "registry:ui",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "button", "popover", "wheel"],
+      "files": [{ "path": "src/components/combo/month-year-picker.tsx", "type": "registry:ui", "target": "components/combo/month-year-picker.tsx" }]
+    },
+    {
+      "name": "signature-dialog",
+      "type": "registry:ui",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "button", "dialog", "signature-pad"],
+      "files": [{ "path": "src/components/combo/signature-dialog.tsx", "type": "registry:ui", "target": "components/combo/signature-dialog.tsx" }]
+    },
+    {
+      "name": "time-wheel-picker",
+      "type": "registry:ui",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "button", "popover", "wheel"],
+      "files": [{ "path": "src/components/combo/time-wheel-picker.tsx", "type": "registry:ui", "target": "components/combo/time-wheel-picker.tsx" }]
     }
   ]
 }

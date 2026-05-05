@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "install-command",
+  "dependencies": [
+    "@tanstack/react-router",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/combo/install-command.tsx",
+      "content": "import * as React from \"react\"\nimport { useRouterState } from \"@tanstack/react-router\"\nimport { CheckIcon, CopyIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst REGISTRY_BASE = \"https://yf-ui.vercel.app/r\"\n\ninterface InstallCommandProps extends React.ComponentProps<\"div\"> {\n  /** Override auto-detection from URL path. */\n  name?: string\n}\n\nfunction InstallCommand({ className, name, ...props }: InstallCommandProps) {\n  const pathname = useRouterState({ select: (s) => s.location.pathname })\n  const detected = pathname.split(\"/\").filter(Boolean).pop() ?? \"\"\n  const itemName = name ?? detected\n  const command = `npx shadcn@latest add ${REGISTRY_BASE}/${itemName}.json`\n\n  const [copied, setCopied] = React.useState(false)\n\n  function handleCopy() {\n    navigator.clipboard.writeText(command)\n    setCopied(true)\n    window.setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div\n      data-slot=\"install-command\"\n      className={cn(\n        \"flex items-center justify-between gap-3 rounded-xl border bg-muted/35 px-4 py-3\",\n        className\n      )}\n      {...props}\n    >\n      <code className=\"truncate font-mono text-sm text-muted-foreground\">\n        {command}\n      </code>\n      <button\n        type=\"button\"\n        onClick={handleCopy}\n        aria-label={copied ? \"Copied\" : \"Copy install command\"}\n        className=\"inline-flex size-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground\"\n      >\n        {copied ? (\n          <CheckIcon className=\"size-4\" />\n        ) : (\n          <CopyIcon className=\"size-4\" />\n        )}\n      </button>\n    </div>\n  )\n}\n\nexport { InstallCommand }\nexport type { InstallCommandProps }\n",
+      "type": "registry:ui",
+      "target": "components/combo/install-command.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

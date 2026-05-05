@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { CodeBlock } from "@/components/ui/code-block"
 import { Row, RowItem } from "@/components/ui/row"
 import { Confirmation } from "@/components/combo/confirmation"
+import { InstallCommand } from "@/components/combo/install-command"
 
 export const Route = createFileRoute("/combo/confirmation")({
   component: ConfirmationPage,
@@ -49,6 +50,7 @@ function ConfirmationPage() {
           always outline.
         </p>
       </div>
+      <InstallCommand />
       <Row>
         <RowItem main>
           <div className="flex flex-col gap-4 rounded-xl border border-border bg-muted/30 p-6">

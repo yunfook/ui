@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-field",
+  "registryDependencies": [
+    "checkbox",
+    "field",
+    "form-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/combo/form-field.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Checkbox } from \"@/components/ui/checkbox\"\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\"\nimport { useFieldContext } from \"@/lib/form-context\"\n\ninterface ToggleFieldApi {\n  name: string\n  state: { value: unknown }\n  handleChange: (v: boolean) => void\n}\n\ntype FormFieldProps = {\n  label: React.ReactNode\n  /** Adds a visual asterisk to the label. Real validation lives in your zod schema. */\n  important?: boolean\n  /** Helper text below the input. */\n  description?: React.ReactNode\n  className?: string\n  children?: React.ReactNode\n} & (\n  | { toggle?: false; toggleField?: never }\n  | { toggle: true; toggleField: ToggleFieldApi }\n)\n\nfunction FormField({\n  label,\n  important,\n  description,\n  toggle,\n  toggleField,\n  className,\n  children,\n}: FormFieldProps) {\n  const field = useFieldContext() as {\n    name: string\n    state: { meta: { isTouched: boolean; errors: unknown[] } }\n  }\n\n  const toggleChecked = toggle\n    ? !!(toggleField?.state.value as boolean | undefined)\n    : true\n\n  const errors = field.state.meta.isTouched\n    ? (field.state.meta.errors as Array<{ message?: string } | string>)\n    : []\n\n  return (\n    <Field className={className}>\n      <div className=\"flex items-center gap-2\">\n        {toggle && toggleField && (\n          <Checkbox\n            id={`${toggleField.name}-toggle`}\n            checked={toggleChecked}\n            onCheckedChange={(v) => toggleField.handleChange(v)}\n          />\n        )}\n        <FieldLabel htmlFor={field.name}>\n          {label}\n          {important && (\n            <span aria-hidden className=\"text-destructive\">\n              *\n            </span>\n          )}\n        </FieldLabel>\n      </div>\n      <fieldset\n        disabled={!toggleChecked}\n        className=\"m-0 flex min-w-0 flex-col gap-1.5 border-0 p-0 disabled:opacity-60\"\n      >\n        {children}\n        {description && <FieldDescription>{description}</FieldDescription>}\n        <FieldError errors={errors} />\n      </fieldset>\n    </Field>\n  )\n}\n\nexport { FormField, type FormFieldProps }\n",
+      "type": "registry:ui",
+      "target": "components/combo/form-field.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

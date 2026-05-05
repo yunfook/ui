@@ -8,6 +8,7 @@ import {
   type ColumnDef,
   type ColumnGroup,
 } from "@/components/combo/data-table"
+import { InstallCommand } from "@/components/combo/install-command"
 
 export const Route = createFileRoute("/combo/data-table")({
   component: DataTablePage,
@@ -250,6 +251,7 @@ function DataTablePage() {
           so the API stays clear.
         </p>
       </div>
+      <InstallCommand />
 
       <Section
         title="Basic"

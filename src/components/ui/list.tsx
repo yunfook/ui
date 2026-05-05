@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 interface ListContextValue {
   value: string | undefined
@@ -80,13 +81,13 @@ function List<T>(props: ListProps<T>) {
         >
           <span>{message}</span>
           {query.refetch && (
-            <button
-              type="button"
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => query.refetch?.()}
-              className="text-xs text-primary underline-offset-4 hover:underline"
             >
               Retry
-            </button>
+            </Button>
           )}
         </li>
       )

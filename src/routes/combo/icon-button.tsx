@@ -15,6 +15,7 @@ import {
 import { CodeBlock } from "@/components/ui/code-block"
 import { Row, RowItem } from "@/components/ui/row"
 import { IconButton } from "@/components/combo/icon-button"
+import { InstallCommand } from "@/components/combo/install-command"
 
 export const Route = createFileRoute("/combo/icon-button")({ component: IconButtonPage })
 
@@ -65,6 +66,7 @@ function IconButtonPage() {
           sizes carry over.
         </p>
       </div>
+      <InstallCommand />
       <Row>
         <RowItem main>
           <div className="flex flex-col gap-6 rounded-xl border border-border bg-muted/30 p-6">

@@ -38,7 +38,6 @@ import { Route as ComboIconButtonRouteImport } from './routes/combo/icon-button'
 import { Route as ComboFormFieldRouteImport } from './routes/combo/form-field'
 import { Route as ComboDataTableRouteImport } from './routes/combo/data-table'
 import { Route as ComboConfirmationRouteImport } from './routes/combo/confirmation'
-import { Route as ComboCalendarRestDaysRouteImport } from './routes/combo/calendar-rest-days'
 import { Route as AnimationAnimation1RouteImport } from './routes/animation/animation1'
 
 const IndexRoute = IndexRouteImport.update({
@@ -186,11 +185,6 @@ const ComboConfirmationRoute = ComboConfirmationRouteImport.update({
   path: '/combo/confirmation',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ComboCalendarRestDaysRoute = ComboCalendarRestDaysRouteImport.update({
-  id: '/combo/calendar-rest-days',
-  path: '/combo/calendar-rest-days',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AnimationAnimation1Route = AnimationAnimation1RouteImport.update({
   id: '/animation/animation1',
   path: '/animation/animation1',
@@ -200,7 +194,6 @@ const AnimationAnimation1Route = AnimationAnimation1RouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/animation/animation1': typeof AnimationAnimation1Route
-  '/combo/calendar-rest-days': typeof ComboCalendarRestDaysRoute
   '/combo/confirmation': typeof ComboConfirmationRoute
   '/combo/data-table': typeof ComboDataTableRoute
   '/combo/form-field': typeof ComboFormFieldRoute
@@ -233,7 +226,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/animation/animation1': typeof AnimationAnimation1Route
-  '/combo/calendar-rest-days': typeof ComboCalendarRestDaysRoute
   '/combo/confirmation': typeof ComboConfirmationRoute
   '/combo/data-table': typeof ComboDataTableRoute
   '/combo/form-field': typeof ComboFormFieldRoute
@@ -267,7 +259,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/animation/animation1': typeof AnimationAnimation1Route
-  '/combo/calendar-rest-days': typeof ComboCalendarRestDaysRoute
   '/combo/confirmation': typeof ComboConfirmationRoute
   '/combo/data-table': typeof ComboDataTableRoute
   '/combo/form-field': typeof ComboFormFieldRoute
@@ -302,7 +293,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/animation/animation1'
-    | '/combo/calendar-rest-days'
     | '/combo/confirmation'
     | '/combo/data-table'
     | '/combo/form-field'
@@ -335,7 +325,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/animation/animation1'
-    | '/combo/calendar-rest-days'
     | '/combo/confirmation'
     | '/combo/data-table'
     | '/combo/form-field'
@@ -368,7 +357,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/animation/animation1'
-    | '/combo/calendar-rest-days'
     | '/combo/confirmation'
     | '/combo/data-table'
     | '/combo/form-field'
@@ -402,7 +390,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnimationAnimation1Route: typeof AnimationAnimation1Route
-  ComboCalendarRestDaysRoute: typeof ComboCalendarRestDaysRoute
   ComboConfirmationRoute: typeof ComboConfirmationRoute
   ComboDataTableRoute: typeof ComboDataTableRoute
   ComboFormFieldRoute: typeof ComboFormFieldRoute
@@ -638,13 +625,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComboConfirmationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/combo/calendar-rest-days': {
-      id: '/combo/calendar-rest-days'
-      path: '/combo/calendar-rest-days'
-      fullPath: '/combo/calendar-rest-days'
-      preLoaderRoute: typeof ComboCalendarRestDaysRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/animation/animation1': {
       id: '/animation/animation1'
       path: '/animation/animation1'
@@ -658,7 +638,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimationAnimation1Route: AnimationAnimation1Route,
-  ComboCalendarRestDaysRoute: ComboCalendarRestDaysRoute,
   ComboConfirmationRoute: ComboConfirmationRoute,
   ComboDataTableRoute: ComboDataTableRoute,
   ComboFormFieldRoute: ComboFormFieldRoute,

@@ -6,6 +6,7 @@ import { CodeBlock } from "@/components/ui/code-block"
 import { FieldGroup } from "@/components/ui/field"
 import { Row, RowItem } from "@/components/ui/row"
 import { useAppForm } from "@/lib/form"
+import { InstallCommand } from "@/components/combo/install-command"
 
 export const Route = createFileRoute("/combo/form-field")({
   component: FormFieldPage,
@@ -96,6 +97,7 @@ function FormFieldPage() {
           to the surrounding field via context.
         </p>
       </div>
+      <InstallCommand />
       <Row>
         <RowItem main>
           <form

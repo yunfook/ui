@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/components/combo/icon-button.tsx",
+      "content": "import * as React from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\n\nimport { Button } from \"@/components/ui/button\"\n\ntype ButtonProps = React.ComponentProps<typeof Button>\n\ninterface IconButtonProps extends Omit<ButtonProps, \"children\"> {\n  /** The icon to render. Swapping it for a different element triggers the animation. */\n  icon: React.ReactNode\n  /** Stable key identifying the icon. Defaults to the element's component name. */\n  iconKey?: React.Key\n  /** Animation duration in ms — default 250. */\n  duration?: number\n}\n\nfunction IconButton({\n  icon,\n  iconKey,\n  duration = 250,\n  size = \"icon\",\n  ...props\n}: IconButtonProps) {\n  const key = iconKey ?? deriveIconKey(icon)\n\n  return (\n    <Button data-slot=\"icon-button\" size={size} {...props}>\n      <AnimatePresence mode=\"popLayout\" initial={false}>\n        <motion.span\n          key={key}\n          data-slot=\"icon-button-icon\"\n          className=\"inline-flex\"\n          initial={{ scale: 0, opacity: 0.4, filter: \"blur(4px)\" }}\n          animate={{ scale: 1, opacity: 1, filter: \"blur(0px)\" }}\n          exit={{ scale: 0, opacity: 0.4, filter: \"blur(4px)\" }}\n          transition={{ duration: duration / 1000 }}\n        >\n          {icon}\n        </motion.span>\n      </AnimatePresence>\n    </Button>\n  )\n}\n\nfunction deriveIconKey(node: React.ReactNode): React.Key {\n  if (React.isValidElement(node)) {\n    if (node.key != null) return node.key\n    const type = node.type as\n      | string\n      | { displayName?: string; name?: string }\n      | undefined\n    if (typeof type === \"string\") return type\n    if (type && typeof type !== \"string\")\n      return type.displayName ?? type.name ?? \"icon\"\n  }\n  return \"icon\"\n}\n\nexport { IconButton, type IconButtonProps }\n",
+      "type": "registry:ui",
+      "target": "components/combo/icon-button.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
