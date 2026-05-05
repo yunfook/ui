@@ -7,12 +7,9 @@
       "name": "theme",
       "type": "registry:style",
       "title": "yf-ui theme",
-      "description": "Color tokens (light + dark), Inter font, extra radius scale. Run this once after `shadcn init` to apply the yf-ui look.",
-      "dependencies": ["@fontsource-variable/inter"],
+      "description": "Color tokens (light + dark) and extra radius scale. Run this once after `shadcn init` to apply the yf-ui look.",
       "cssVars": {
         "theme": {
-          "font-sans": "\"Inter Variable\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
-          "font-heading": "var(--font-sans)",
           "radius-sm": "calc(var(--radius) * 0.6)",
           "radius-md": "calc(var(--radius) * 0.8)",
           "radius-lg": "var(--radius)",

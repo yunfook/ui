@@ -18,15 +18,7 @@ Pick **Tailwind v4** + **TypeScript**. This sets up `components.json`, your CSS 
 npx shadcn@latest add https://yf-ui.vercel.app/r/theme.json
 ```
 
-This overwrites the default shadcn neutral palette with yf-ui's blue OKLCH tokens, adds `Inter Variable` as the sans font, and extends the radius scale (`--radius-sm` through `--radius-4xl`).
-
-> **Important — load the Inter font.** The theme installs `@fontsource-variable/inter`, but you still need to import it once in your app entry (`main.tsx`, root layout, etc.):
->
-> ```ts
-> import "@fontsource-variable/inter"
-> ```
->
-> Without this line, the font won't render even though the package is installed.
+This overwrites the default shadcn neutral palette with yf-ui's blue OKLCH tokens and extends the radius scale (`--radius-sm` through `--radius-4xl`). The font is left to your shadcn preset (e.g. `nova` ships Inter).
 
 ### 3. Add components
 
