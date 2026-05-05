@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "memo",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/memo.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ninterface MemoSection {\n  title: string\n  items: string[]\n}\n\ninterface MemoProps extends React.ComponentProps<\"div\"> {\n  /** Data-driven mode — when provided, children are ignored */\n  data?: MemoSection[]\n}\n\nfunction Memo({ className, data, children, ...props }: MemoProps) {\n  return (\n    <div\n      data-slot=\"memo\"\n      className={cn(\n        \"flex flex-col gap-2 rounded-xl border bg-muted/35 p-4\",\n        className\n      )}\n      {...props}\n    >\n      {data\n        ? data.map((section, i) => (\n            <React.Fragment key={i}>\n              <MemoTitle className={i > 0 ? \"pt-3\" : undefined}>\n                {section.title}\n              </MemoTitle>\n              {section.items.map((item, j) => (\n                <MemoItem key={j}>{item}</MemoItem>\n              ))}\n            </React.Fragment>\n          ))\n        : children}\n    </div>\n  )\n}\n\nfunction MemoTitle({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"memo-title\"\n      className={cn(\"pt-1 text-sm font-medium\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction MemoItem({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"memo-item\"\n      className={cn(\"flex gap-2 text-sm text-muted-foreground\", className)}\n      {...props}\n    >\n      <span className=\"mt-1.5 size-1.5 shrink-0 rounded-full bg-muted-foreground/60\" />\n      <span>{children}</span>\n    </div>\n  )\n}\n\nexport { Memo, MemoItem, MemoTitle, type MemoProps, type MemoSection }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

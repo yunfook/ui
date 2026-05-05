@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signature-pad",
+  "dependencies": [
+    "react-signature-pad-wrapper",
+    "signature_pad"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/signature-pad.tsx",
+      "content": "import * as React from \"react\"\nimport SignaturePadCanvas from \"react-signature-pad-wrapper\"\n\nimport { cn } from \"@/lib/utils\"\n\ninterface SignaturePadHandle {\n  clear: () => void\n  isEmpty: () => boolean\n  toDataURL: (type?: string) => string\n  toBlob: (type?: string) => Promise<Blob | null>\n}\n\ninterface SignaturePadProps {\n  ref?: React.Ref<SignaturePadHandle>\n  penColor?: string\n  height?: number\n  className?: string\n  onChange?: (isEmpty: boolean) => void\n}\n\nfunction SignaturePad({\n  ref,\n  penColor = \"black\",\n  height = 200,\n  className,\n  onChange,\n}: SignaturePadProps) {\n  const padRef = React.useRef<SignaturePadCanvas>(null)\n\n  React.useImperativeHandle(\n    ref,\n    () => ({\n      clear: () => {\n        padRef.current?.clear()\n        onChange?.(true)\n      },\n      isEmpty: () => padRef.current?.isEmpty() ?? true,\n      toDataURL: (type = \"image/png\") =>\n        padRef.current?.toDataURL(type) ?? \"\",\n      toBlob: async (type = \"image/png\") => {\n        if (!padRef.current || padRef.current.isEmpty()) return null\n        const dataUrl = padRef.current.toDataURL(type)\n        return await fetch(dataUrl).then((r) => r.blob())\n      },\n    }),\n    [onChange]\n  )\n\n  const handleStrokeEnd = () => {\n    onChange?.(padRef.current?.isEmpty() ?? true)\n  }\n\n  return (\n    <div\n      data-slot=\"signature-pad\"\n      className={cn(\"rounded-lg border bg-white\", className)}\n      onPointerUp={handleStrokeEnd}\n    >\n      <SignaturePadCanvas\n        ref={padRef}\n        options={{ penColor, minWidth: 1.5, maxWidth: 3 }}\n        height={height}\n        redrawOnResize\n      />\n    </div>\n  )\n}\n\nexport {\n  SignaturePad,\n  type SignaturePadHandle,\n  type SignaturePadProps,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

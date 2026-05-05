@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hyperlink",
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/hyperlink.tsx",
+      "content": "import * as React from \"react\"\nimport * as Icons from \"lucide-react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst hyperlinkVariants = cva(\n  \"inline-flex cursor-pointer items-center gap-1 text-sm transition-colors\",\n  {\n    variants: {\n      variant: {\n        underline:\n          \"text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary\",\n        dotted:\n          \"text-primary underline decoration-dotted decoration-primary/40 underline-offset-4 hover:decoration-primary\",\n        dashed:\n          \"text-primary underline decoration-dashed decoration-primary/40 underline-offset-4 hover:decoration-primary\",\n        wavy: \"text-primary underline decoration-wavy decoration-primary/40 underline-offset-4 hover:decoration-primary\",\n        double:\n          \"text-primary underline decoration-double decoration-primary/40 underline-offset-4 hover:decoration-primary\",\n        plain: \"text-muted-foreground no-underline hover:text-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"underline\",\n    },\n  }\n)\n\ntype IconComponent = React.ComponentType<{ className?: string }>\nconst iconRegistry = Icons as unknown as Record<string, IconComponent>\n\ninterface HyperlinkProps\n  extends React.ComponentProps<\"a\">,\n    VariantProps<typeof hyperlinkVariants> {\n  text: string\n  icon?: string\n}\n\nfunction Hyperlink({\n  className,\n  variant,\n  text,\n  icon,\n  ...props\n}: HyperlinkProps) {\n  const Icon = icon ? iconRegistry[icon] : null\n\n  return (\n    <a\n      data-slot=\"hyperlink\"\n      className={cn(hyperlinkVariants({ variant }), className)}\n      {...props}\n    >\n      {text}\n      {Icon ? <Icon className=\"size-3.5 shrink-0\" /> : null}\n    </a>\n  )\n}\n\nexport { Hyperlink, hyperlinkVariants, type HyperlinkProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "capsule-button",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/capsule-button.tsx",
+      "content": "import * as React from \"react\";\nimport { Radio as RadioPrimitive } from \"@base-ui/react/radio\";\nimport { RadioGroup as RadioGroupPrimitive } from \"@base-ui/react/radio-group\";\n\nimport { cn } from \"@/lib/utils\";\n\ninterface CapsuleButtonProps extends Omit<\n  RadioGroupPrimitive.Props,\n  \"children\" | \"value\" | \"defaultValue\" | \"onValueChange\"\n> {\n  leftVal: string;\n  rightVal: string;\n  value?: string;\n  defaultValue?: string;\n  onValueChange?: (value: string) => void;\n}\n\nfunction CapsuleButton({\n  className,\n  leftVal,\n  rightVal,\n  value: controlledValue,\n  defaultValue,\n  onValueChange,\n  ...props\n}: CapsuleButtonProps) {\n  const [internalValue, setInternalValue] = React.useState<string>(\n    defaultValue ?? leftVal,\n  );\n  const isControlled = controlledValue !== undefined;\n  const value = isControlled ? controlledValue : internalValue;\n  const onRight = value === rightVal;\n\n  const handleChange = (next: unknown) => {\n    const nextStr = typeof next === \"string\" ? next : leftVal;\n    if (!isControlled) setInternalValue(nextStr);\n    onValueChange?.(nextStr);\n  };\n\n  return (\n    <RadioGroupPrimitive\n      data-slot=\"capsule-button\"\n      value={value}\n      onValueChange={handleChange}\n      className={cn(\n        \"relative inline-flex h-8 w-fit items-stretch rounded-full bg-muted p-[5px] py-5 text-muted-foreground\",\n        className,\n      )}\n      {...props}\n    >\n      <div\n        aria-hidden\n        className={cn(\n          \"absolute top-[2px] bottom-[2px] bg-foreground shadow-sm transition-all duration-200 ease-out\",\n          onRight ? \"rounded-r-full\" : \"rounded-l-full\",\n        )}\n        style={{\n          left: \"2px\",\n          width: \"calc(50% - 2px)\",\n          transform: onRight ? \"translateX(100%)\" : \"translateX(0)\",\n        }}\n      />\n      <CapsuleButtonItem value={leftVal} side=\"left\" />\n      <CapsuleButtonItem value={rightVal} side=\"right\" />\n    </RadioGroupPrimitive>\n  );\n}\n\nfunction CapsuleButtonItem({\n  value,\n  side,\n}: {\n  value: string;\n  side: \"left\" | \"right\";\n}) {\n  return (\n    <RadioPrimitive.Root\n      value={value}\n      data-slot=\"capsule-button-item\"\n      className={cn(\n        \"relative z-10 inline-flex flex-1 cursor-pointer items-center justify-center px-3 text-[11px] font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 data-checked:text-background data-unchecked:text-muted-foreground data-unchecked:hover:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50\",\n        side === \"left\" ? \"rounded-l-full\" : \"rounded-r-full\",\n      )}\n    >\n      {value}\n    </RadioPrimitive.Root>\n  );\n}\n\nexport { CapsuleButton };\nexport type { CapsuleButtonProps };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

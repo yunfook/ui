@@ -1,0 +1,31 @@
+.yf-row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.yf-row__item {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 0%;
+}
+
+.yf-row__item[data-fixed-width="true"] {
+  width: var(--yf-row-width);
+  flex: none;
+}
+
+.yf-row__item[data-main="false"] {
+  overflow: auto;
+}
+
+.yf-row__item[data-main="false"][data-sync-height="true"] {
+  height: var(--yf-row-main-height);
+  max-height: var(--yf-row-main-height);
+}

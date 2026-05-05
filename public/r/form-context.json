@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-context",
+  "title": "Form context",
+  "description": "TanStack Form contexts shared by form-aware fields.",
+  "dependencies": [
+    "@tanstack/react-form"
+  ],
+  "files": [
+    {
+      "path": "src/lib/form-context.ts",
+      "content": "import { createFormHookContexts } from \"@tanstack/react-form\"\n\nexport const {\n  fieldContext,\n  formContext,\n  useFieldContext,\n  useFormContext,\n} = createFormHookContexts()\n",
+      "type": "registry:lib",
+      "target": "lib/form-context.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

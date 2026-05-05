@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "submit-button",
+  "registryDependencies": [
+    "button",
+    "form-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/submit-button.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { useFormContext } from \"@/lib/form-context\"\n\ntype FormApi = {\n  handleSubmit: () => Promise<void>\n  state: { canSubmit: boolean; isSubmitting: boolean }\n  Subscribe: React.ComponentType<{\n    selector: (state: { canSubmit: boolean; isSubmitting: boolean }) => unknown\n    children: (selected: unknown) => React.ReactNode\n  }>\n}\n\ninterface SubmitButtonProps\n  extends Omit<React.ComponentProps<typeof Button>, \"type\" | \"onClick\"> {\n  /** Disable the button while the form is invalid (default true). */\n  disableWhenInvalid?: boolean\n}\n\nfunction SubmitButton({\n  children = \"Submit\",\n  disableWhenInvalid = true,\n  disabled,\n  ...props\n}: SubmitButtonProps) {\n  const form = useFormContext() as FormApi\n\n  return (\n    <form.Subscribe\n      selector={(s) => ({ canSubmit: s.canSubmit, isSubmitting: s.isSubmitting })}\n    >\n      {((state) => {\n        const { canSubmit, isSubmitting } = state as {\n          canSubmit: boolean\n          isSubmitting: boolean\n        }\n        return (\n          <Button\n            type=\"submit\"\n            disabled={\n              disabled ||\n              isSubmitting ||\n              (disableWhenInvalid && !canSubmit)\n            }\n            onClick={(e) => {\n              e.preventDefault()\n              form.handleSubmit()\n            }}\n            {...props}\n          >\n            {isSubmitting ? \"Submitting…\" : children}\n          </Button>\n        )\n      }) as (selected: unknown) => React.ReactNode}\n    </form.Subscribe>\n  )\n}\n\nexport { SubmitButton, type SubmitButtonProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

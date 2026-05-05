@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-utils",
+  "title": "Color utilities",
+  "description": "HSV/hex conversion helpers used by the color picker.",
+  "files": [
+    {
+      "path": "src/lib/color-utils.ts",
+      "content": "export interface HSV {\n  h: number // 0-360\n  s: number // 0-100\n  v: number // 0-100\n}\n\nexport function hsvToHex({ h, s, v }: HSV): string {\n  const s1 = s / 100\n  const v1 = v / 100\n  const c = v1 * s1\n  const x = c * (1 - Math.abs(((h / 60) % 2) - 1))\n  const m = v1 - c\n\n  let r = 0,\n    g = 0,\n    b = 0\n  if (h < 60) [r, g, b] = [c, x, 0]\n  else if (h < 120) [r, g, b] = [x, c, 0]\n  else if (h < 180) [r, g, b] = [0, c, x]\n  else if (h < 240) [r, g, b] = [0, x, c]\n  else if (h < 300) [r, g, b] = [x, 0, c]\n  else [r, g, b] = [c, 0, x]\n\n  const toHex = (n: number) =>\n    Math.round((n + m) * 255)\n      .toString(16)\n      .padStart(2, \"0\")\n\n  return `#${toHex(r)}${toHex(g)}${toHex(b)}`\n}\n\nexport function hexToHsv(hex: string): HSV {\n  const cleaned = hex.replace(\"#\", \"\")\n  const r = parseInt(cleaned.slice(0, 2), 16) / 255\n  const g = parseInt(cleaned.slice(2, 4), 16) / 255\n  const b = parseInt(cleaned.slice(4, 6), 16) / 255\n\n  const max = Math.max(r, g, b)\n  const min = Math.min(r, g, b)\n  const d = max - min\n\n  let h = 0\n  if (d !== 0) {\n    if (max === r) h = ((g - b) / d + 6) % 6\n    else if (max === g) h = (b - r) / d + 2\n    else h = (r - g) / d + 4\n    h *= 60\n  }\n\n  const s = max === 0 ? 0 : (d / max) * 100\n  const v = max * 100\n\n  return { h, s, v }\n}\n\nexport function isValidHex(hex: string): boolean {\n  return /^#[0-9a-fA-F]{6}$/.test(hex)\n}\n",
+      "type": "registry:lib",
+      "target": "lib/color-utils.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

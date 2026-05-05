@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "registryDependencies": [
+    "utils",
+    "form-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/input.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { fieldContext } from \"@/lib/form-context\"\n\nconst inputClass =\n  \"h-9 w-full min-w-0 rounded-md border border-input bg-background px-3 py-1 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/30 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\"\n\nfunction Input({ className, type = \"text\", ...props }: React.ComponentProps<\"input\">) {\n  const fieldApi = React.useContext(fieldContext) as\n    | {\n        name: string\n        state: { value: unknown; meta: { isTouched: boolean; errors: unknown[] } }\n        handleChange: (v: string) => void\n        handleBlur: () => void\n      }\n    | undefined\n\n  if (fieldApi) {\n    const v = (fieldApi.state.value as string | undefined) ?? \"\"\n    const isInvalid =\n      fieldApi.state.meta.isTouched && fieldApi.state.meta.errors.length > 0\n    return (\n      <input\n        data-slot=\"input\"\n        type={type}\n        name={fieldApi.name}\n        value={v}\n        onChange={(e) => fieldApi.handleChange(e.target.value)}\n        onBlur={() => fieldApi.handleBlur()}\n        aria-invalid={isInvalid || undefined}\n        className={cn(inputClass, className)}\n        {...props}\n      />\n    )\n  }\n\n  return (\n    <input\n      data-slot=\"input\"\n      type={type}\n      className={cn(inputClass, className)}\n      {...props}\n    />\n  )\n}\n\nexport { Input }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
