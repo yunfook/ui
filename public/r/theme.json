@@ -9,7 +9,14 @@
   "cssVars": {
     "theme": {
       "font-sans": "\"Inter Variable\", system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
-      "font-heading": "var(--font-sans)"
+      "font-heading": "var(--font-sans)",
+      "radius-sm": "calc(var(--radius) * 0.6)",
+      "radius-md": "calc(var(--radius) * 0.8)",
+      "radius-lg": "var(--radius)",
+      "radius-xl": "calc(var(--radius) * 1.4)",
+      "radius-2xl": "calc(var(--radius) * 1.8)",
+      "radius-3xl": "calc(var(--radius) * 2.2)",
+      "radius-4xl": "calc(var(--radius) * 2.6)"
     },
     "light": {
       "background": "oklch(1 0 0)",
@@ -77,17 +84,6 @@
       "sidebar-accent-foreground": "oklch(0.95 0.005 255)",
       "sidebar-border": "oklch(1 0 0 / 10%)",
       "sidebar-ring": "oklch(0.72 0.15 258)"
-    }
-  },
-  "css": {
-    "@theme inline": {
-      "--radius-sm": "calc(var(--radius) * 0.6)",
-      "--radius-md": "calc(var(--radius) * 0.8)",
-      "--radius-lg": "var(--radius)",
-      "--radius-xl": "calc(var(--radius) * 1.4)",
-      "--radius-2xl": "calc(var(--radius) * 1.8)",
-      "--radius-3xl": "calc(var(--radius) * 2.2)",
-      "--radius-4xl": "calc(var(--radius) * 2.6)"
     }
   },
   "type": "registry:style"
