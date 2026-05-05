@@ -6,12 +6,12 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "button",
-    "checkbox",
-    "expandable",
-    "table",
-    "list"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/checkbox.json",
+    "https://yf-ui.vercel.app/r/expandable.json",
+    "https://yf-ui.vercel.app/r/table.json",
+    "https://yf-ui.vercel.app/r/list.json"
   ],
   "files": [
     {

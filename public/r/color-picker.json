@@ -2,10 +2,10 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "color-picker",
   "registryDependencies": [
-    "utils",
-    "color-utils",
-    "button",
-    "popover"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/color-utils.json",
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/popover.json"
   ],
   "files": [
     {

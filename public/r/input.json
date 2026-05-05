@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input",
   "registryDependencies": [
-    "utils",
-    "form-context"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/form-context.json"
   ],
   "files": [
     {

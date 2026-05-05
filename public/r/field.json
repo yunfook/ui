@@ -5,7 +5,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "utils"
+    "https://yf-ui.vercel.app/r/utils.json"
   ],
   "files": [
     {

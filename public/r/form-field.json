@@ -2,9 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form-field",
   "registryDependencies": [
-    "checkbox",
-    "field",
-    "form-context"
+    "https://yf-ui.vercel.app/r/checkbox.json",
+    "https://yf-ui.vercel.app/r/field.json",
+    "https://yf-ui.vercel.app/r/form-context.json"
   ],
   "files": [
     {

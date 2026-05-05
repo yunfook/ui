@@ -5,8 +5,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "table"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/table.json"
   ],
   "files": [
     {

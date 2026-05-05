@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "confirmation",
   "registryDependencies": [
-    "button",
-    "dialog"
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/dialog.json"
   ],
   "files": [
     {

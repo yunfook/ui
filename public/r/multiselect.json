@@ -5,9 +5,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "checkbox",
-    "popover"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/checkbox.json",
+    "https://yf-ui.vercel.app/r/popover.json"
   ],
   "files": [
     {

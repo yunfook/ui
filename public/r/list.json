@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "list",
   "registryDependencies": [
-    "utils",
-    "button"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/button.json"
   ],
   "files": [
     {

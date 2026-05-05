@@ -6,8 +6,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "form-context"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/form-context.json"
   ],
   "files": [
     {

@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "memo",
   "registryDependencies": [
-    "utils"
+    "https://yf-ui.vercel.app/r/utils.json"
   ],
   "files": [
     {

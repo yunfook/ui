@@ -5,10 +5,10 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "button",
-    "dialog",
-    "signature-pad"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/dialog.json",
+    "https://yf-ui.vercel.app/r/signature-pad.json"
   ],
   "files": [
     {

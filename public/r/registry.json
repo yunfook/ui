@@ -92,301 +92,723 @@
       "type": "registry:lib",
       "title": "cn() utility",
       "description": "clsx + tailwind-merge helper used by every component.",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "files": [{ "path": "src/lib/utils.ts", "type": "registry:lib", "target": "lib/utils.ts" }]
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
     },
     {
       "name": "color-utils",
       "type": "registry:lib",
       "title": "Color utilities",
       "description": "HSV/hex conversion helpers used by the color picker.",
-      "files": [{ "path": "src/lib/color-utils.ts", "type": "registry:lib", "target": "lib/color-utils.ts" }]
+      "files": [
+        {
+          "path": "src/lib/color-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/color-utils.ts"
+        }
+      ]
     },
     {
       "name": "form-context",
       "type": "registry:lib",
       "title": "Form context",
       "description": "TanStack Form contexts shared by form-aware fields.",
-      "dependencies": ["@tanstack/react-form"],
-      "files": [{ "path": "src/lib/form-context.ts", "type": "registry:lib", "target": "lib/form-context.ts" }]
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "files": [
+        {
+          "path": "src/lib/form-context.ts",
+          "type": "registry:lib",
+          "target": "lib/form-context.ts"
+        }
+      ]
     },
-
     {
       "name": "autocomplete",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/autocomplete.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/autocomplete.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "badge",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/badge.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/button.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "calendar",
       "type": "registry:ui",
-      "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
-      "registryDependencies": ["utils", "button"],
-      "files": [{ "path": "src/components/ui/calendar.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "react-day-picker",
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "capsule-button",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/capsule-button.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/capsule-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "checkbox",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["utils", "form-context"],
-      "files": [{ "path": "src/components/ui/checkbox.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/form-context.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "code-block",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/code-block.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "color-picker",
       "type": "registry:ui",
-      "registryDependencies": ["utils", "color-utils", "button", "popover"],
-      "files": [{ "path": "src/components/ui/color-picker.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/color-utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/color-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "dialog",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["utils", "button"],
-      "files": [{ "path": "src/components/ui/dialog.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "dropdown-menu",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/dropdown-menu.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "expandable",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils", "table"],
-      "files": [{ "path": "src/components/ui/expandable.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/table.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/expandable.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "field",
       "type": "registry:ui",
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/field.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "hyperlink",
       "type": "registry:ui",
-      "dependencies": ["class-variance-authority", "lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/hyperlink.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/hyperlink.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "input",
       "type": "registry:ui",
-      "registryDependencies": ["utils", "form-context"],
-      "files": [{ "path": "src/components/ui/input.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/form-context.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "item",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["utils", "separator"],
-      "files": [{ "path": "src/components/ui/item.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "list",
       "type": "registry:ui",
-      "registryDependencies": ["utils", "button"],
-      "files": [{ "path": "src/components/ui/list.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/list.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "memo",
       "type": "registry:ui",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/memo.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/memo.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "multiselect",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils", "checkbox", "popover"],
-      "files": [{ "path": "src/components/ui/multiselect.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/checkbox.json",
+        "https://yf-ui.vercel.app/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/multiselect.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "palette",
       "type": "registry:ui",
-      "registryDependencies": ["utils", "button", "popover"],
-      "files": [{ "path": "src/components/ui/palette.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/palette.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "panel",
       "type": "registry:ui",
-      "dependencies": ["vaul", "lucide-react"],
-      "registryDependencies": ["utils", "button"],
-      "files": [{ "path": "src/components/ui/panel.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "vaul",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/panel.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "pill-radio",
       "type": "registry:ui",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/pill-radio.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/pill-radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "row",
       "type": "registry:ui",
       "title": "Row",
       "description": "Responsive flex row with a height-synced main item and scrollable side items.",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/row.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/row.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "popover",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/popover.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "radio-group",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/radio-group.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "select",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/select.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "separator",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/separator.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "signature-pad",
       "type": "registry:ui",
-      "dependencies": ["react-signature-pad-wrapper", "signature_pad"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/signature-pad.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "react-signature-pad-wrapper",
+        "signature_pad"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/signature-pad.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "sonner",
       "type": "registry:ui",
-      "dependencies": ["sonner", "next-themes", "lucide-react"],
-      "files": [{ "path": "src/components/ui/sonner.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "sonner",
+        "next-themes",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "spinner",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/spinner.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "submit-button",
       "type": "registry:ui",
-      "registryDependencies": ["button", "form-context"],
-      "files": [{ "path": "src/components/ui/submit-button.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/form-context.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/submit-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "switch",
       "type": "registry:ui",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/switch.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "table",
       "type": "registry:ui",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/table.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "wheel",
       "type": "registry:ui",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/ui/wheel.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/wheel.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
-
     {
       "name": "confirmation",
       "type": "registry:ui",
-      "registryDependencies": ["button", "dialog"],
-      "files": [{ "path": "src/components/combo/confirmation.tsx", "type": "registry:ui", "target": "components/combo/confirmation.tsx" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/confirmation.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/confirmation.tsx"
+        }
+      ]
     },
     {
       "name": "data-table",
       "type": "registry:ui",
-      "dependencies": ["@tanstack/react-table", "lucide-react"],
-      "registryDependencies": ["utils", "button", "checkbox", "expandable", "table", "list"],
-      "files": [{ "path": "src/components/combo/data-table.tsx", "type": "registry:ui", "target": "components/combo/data-table.tsx" }]
+      "dependencies": [
+        "@tanstack/react-table",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/checkbox.json",
+        "https://yf-ui.vercel.app/r/expandable.json",
+        "https://yf-ui.vercel.app/r/table.json",
+        "https://yf-ui.vercel.app/r/list.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/data-table.tsx"
+        }
+      ]
     },
     {
       "name": "form-field",
       "type": "registry:ui",
-      "registryDependencies": ["checkbox", "field", "form-context"],
-      "files": [{ "path": "src/components/combo/form-field.tsx", "type": "registry:ui", "target": "components/combo/form-field.tsx" }]
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/checkbox.json",
+        "https://yf-ui.vercel.app/r/field.json",
+        "https://yf-ui.vercel.app/r/form-context.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/form-field.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/form-field.tsx"
+        }
+      ]
     },
     {
       "name": "icon-button",
       "type": "registry:ui",
-      "dependencies": ["motion"],
-      "registryDependencies": ["button"],
-      "files": [{ "path": "src/components/combo/icon-button.tsx", "type": "registry:ui", "target": "components/combo/icon-button.tsx" }]
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/icon-button.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/icon-button.tsx"
+        }
+      ]
     },
     {
       "name": "install-command",
       "type": "registry:ui",
-      "dependencies": ["@tanstack/react-router", "lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "src/components/combo/install-command.tsx", "type": "registry:ui", "target": "components/combo/install-command.tsx" }]
+      "dependencies": [
+        "@tanstack/react-router",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/install-command.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/install-command.tsx"
+        }
+      ]
     },
     {
       "name": "month-year-picker",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils", "button", "popover", "wheel"],
-      "files": [{ "path": "src/components/combo/month-year-picker.tsx", "type": "registry:ui", "target": "components/combo/month-year-picker.tsx" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/popover.json",
+        "https://yf-ui.vercel.app/r/wheel.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/month-year-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/month-year-picker.tsx"
+        }
+      ]
     },
     {
       "name": "signature-dialog",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils", "button", "dialog", "signature-pad"],
-      "files": [{ "path": "src/components/combo/signature-dialog.tsx", "type": "registry:ui", "target": "components/combo/signature-dialog.tsx" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/dialog.json",
+        "https://yf-ui.vercel.app/r/signature-pad.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/signature-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/signature-dialog.tsx"
+        }
+      ]
     },
     {
       "name": "time-wheel-picker",
       "type": "registry:ui",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["utils", "button", "popover", "wheel"],
-      "files": [{ "path": "src/components/combo/time-wheel-picker.tsx", "type": "registry:ui", "target": "components/combo/time-wheel-picker.tsx" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://yf-ui.vercel.app/r/utils.json",
+        "https://yf-ui.vercel.app/r/button.json",
+        "https://yf-ui.vercel.app/r/popover.json",
+        "https://yf-ui.vercel.app/r/wheel.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combo/time-wheel-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/combo/time-wheel-picker.tsx"
+        }
+      ]
     }
   ]
 }

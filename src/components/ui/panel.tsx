@@ -14,12 +14,14 @@ const panelSizeMap = {
 type PanelSize = keyof typeof panelSizeMap
 
 function Panel({
+  handleOnly = true,
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
   return (
     <DrawerPrimitive.Root
       data-slot="panel"
       direction="right"
+      handleOnly={handleOnly}
       {...props}
     />
   )

@@ -2,9 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "palette",
   "registryDependencies": [
-    "utils",
-    "button",
-    "popover"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/popover.json"
   ],
   "files": [
     {

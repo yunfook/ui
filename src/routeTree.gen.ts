@@ -21,7 +21,9 @@ import { Route as UiPaletteRouteImport } from './routes/ui/palette'
 import { Route as UiMultiselectRouteImport } from './routes/ui/multiselect'
 import { Route as UiMemoRouteImport } from './routes/ui/memo'
 import { Route as UiListRouteImport } from './routes/ui/list'
+import { Route as UiInputRouteImport } from './routes/ui/input'
 import { Route as UiHyperlinkRouteImport } from './routes/ui/hyperlink'
+import { Route as UiFieldRouteImport } from './routes/ui/field'
 import { Route as UiExpandableRouteImport } from './routes/ui/expandable'
 import { Route as UiDialogRouteImport } from './routes/ui/dialog'
 import { Route as UiColorPickerRouteImport } from './routes/ui/color-picker'
@@ -100,9 +102,19 @@ const UiListRoute = UiListRouteImport.update({
   path: '/ui/list',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UiInputRoute = UiInputRouteImport.update({
+  id: '/ui/input',
+  path: '/ui/input',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UiHyperlinkRoute = UiHyperlinkRouteImport.update({
   id: '/ui/hyperlink',
   path: '/ui/hyperlink',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UiFieldRoute = UiFieldRouteImport.update({
+  id: '/ui/field',
+  path: '/ui/field',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UiExpandableRoute = UiExpandableRouteImport.update({
@@ -210,7 +222,9 @@ export interface FileRoutesByFullPath {
   '/ui/color-picker': typeof UiColorPickerRoute
   '/ui/dialog': typeof UiDialogRoute
   '/ui/expandable': typeof UiExpandableRoute
+  '/ui/field': typeof UiFieldRoute
   '/ui/hyperlink': typeof UiHyperlinkRoute
+  '/ui/input': typeof UiInputRoute
   '/ui/list': typeof UiListRoute
   '/ui/memo': typeof UiMemoRoute
   '/ui/multiselect': typeof UiMultiselectRoute
@@ -242,7 +256,9 @@ export interface FileRoutesByTo {
   '/ui/color-picker': typeof UiColorPickerRoute
   '/ui/dialog': typeof UiDialogRoute
   '/ui/expandable': typeof UiExpandableRoute
+  '/ui/field': typeof UiFieldRoute
   '/ui/hyperlink': typeof UiHyperlinkRoute
+  '/ui/input': typeof UiInputRoute
   '/ui/list': typeof UiListRoute
   '/ui/memo': typeof UiMemoRoute
   '/ui/multiselect': typeof UiMultiselectRoute
@@ -275,7 +291,9 @@ export interface FileRoutesById {
   '/ui/color-picker': typeof UiColorPickerRoute
   '/ui/dialog': typeof UiDialogRoute
   '/ui/expandable': typeof UiExpandableRoute
+  '/ui/field': typeof UiFieldRoute
   '/ui/hyperlink': typeof UiHyperlinkRoute
+  '/ui/input': typeof UiInputRoute
   '/ui/list': typeof UiListRoute
   '/ui/memo': typeof UiMemoRoute
   '/ui/multiselect': typeof UiMultiselectRoute
@@ -309,7 +327,9 @@ export interface FileRouteTypes {
     | '/ui/color-picker'
     | '/ui/dialog'
     | '/ui/expandable'
+    | '/ui/field'
     | '/ui/hyperlink'
+    | '/ui/input'
     | '/ui/list'
     | '/ui/memo'
     | '/ui/multiselect'
@@ -341,7 +361,9 @@ export interface FileRouteTypes {
     | '/ui/color-picker'
     | '/ui/dialog'
     | '/ui/expandable'
+    | '/ui/field'
     | '/ui/hyperlink'
+    | '/ui/input'
     | '/ui/list'
     | '/ui/memo'
     | '/ui/multiselect'
@@ -373,7 +395,9 @@ export interface FileRouteTypes {
     | '/ui/color-picker'
     | '/ui/dialog'
     | '/ui/expandable'
+    | '/ui/field'
     | '/ui/hyperlink'
+    | '/ui/input'
     | '/ui/list'
     | '/ui/memo'
     | '/ui/multiselect'
@@ -406,7 +430,9 @@ export interface RootRouteChildren {
   UiColorPickerRoute: typeof UiColorPickerRoute
   UiDialogRoute: typeof UiDialogRoute
   UiExpandableRoute: typeof UiExpandableRoute
+  UiFieldRoute: typeof UiFieldRoute
   UiHyperlinkRoute: typeof UiHyperlinkRoute
+  UiInputRoute: typeof UiInputRoute
   UiListRoute: typeof UiListRoute
   UiMemoRoute: typeof UiMemoRoute
   UiMultiselectRoute: typeof UiMultiselectRoute
@@ -506,11 +532,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UiListRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ui/input': {
+      id: '/ui/input'
+      path: '/ui/input'
+      fullPath: '/ui/input'
+      preLoaderRoute: typeof UiInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ui/hyperlink': {
       id: '/ui/hyperlink'
       path: '/ui/hyperlink'
       fullPath: '/ui/hyperlink'
       preLoaderRoute: typeof UiHyperlinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ui/field': {
+      id: '/ui/field'
+      path: '/ui/field'
+      fullPath: '/ui/field'
+      preLoaderRoute: typeof UiFieldRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ui/expandable': {
@@ -654,7 +694,9 @@ const rootRouteChildren: RootRouteChildren = {
   UiColorPickerRoute: UiColorPickerRoute,
   UiDialogRoute: UiDialogRoute,
   UiExpandableRoute: UiExpandableRoute,
+  UiFieldRoute: UiFieldRoute,
   UiHyperlinkRoute: UiHyperlinkRoute,
+  UiInputRoute: UiInputRoute,
   UiListRoute: UiListRoute,
   UiMemoRoute: UiMemoRoute,
   UiMultiselectRoute: UiMultiselectRoute,

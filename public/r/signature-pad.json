@@ -6,7 +6,7 @@
     "signature_pad"
   ],
   "registryDependencies": [
-    "utils"
+    "https://yf-ui.vercel.app/r/utils.json"
   ],
   "files": [
     {

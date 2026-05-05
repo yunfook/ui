@@ -5,7 +5,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "button"
+    "https://yf-ui.vercel.app/r/button.json"
   ],
   "files": [
     {

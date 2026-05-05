@@ -4,7 +4,7 @@
   "title": "Row",
   "description": "Responsive flex row with a height-synced main item and scrollable side items.",
   "registryDependencies": [
-    "utils"
+    "https://yf-ui.vercel.app/r/utils.json"
   ],
   "files": [
     {

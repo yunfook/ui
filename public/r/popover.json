@@ -5,7 +5,7 @@
     "@base-ui/react"
   ],
   "registryDependencies": [
-    "utils"
+    "https://yf-ui.vercel.app/r/utils.json"
   ],
   "files": [
     {

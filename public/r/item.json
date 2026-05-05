@@ -6,8 +6,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "utils",
-    "separator"
+    "https://yf-ui.vercel.app/r/utils.json",
+    "https://yf-ui.vercel.app/r/separator.json"
   ],
   "files": [
     {

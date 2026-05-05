@@ -8,6 +8,8 @@ const components = [
   { to: '/ui/calendar', label: 'Calendar', description: 'Date picker — single, range, multiple, dropdown nav' },
   { to: '/ui/code-block', label: 'CodeBlock', description: 'Code display with line numbers and copy' },
   { to: '/ui/dialog', label: 'Dialog', description: 'Modal dialog with size variants' },
+  { to: '/ui/field', label: 'Field', description: 'Form layout primitives — group, set, label, description, error' },
+  { to: '/ui/input', label: 'Input', description: 'Text input — auto-binds to TanStack-Form field context' },
   { to: '/ui/panel', label: 'Panel', description: 'Right-anchored side panel with size variants' },
   { to: '/ui/list', label: 'List', description: 'Styled ul/li with header and empty state' },
   { to: '/ui/memo', label: 'Memo', description: 'Grouped memo surface with titled sections' },

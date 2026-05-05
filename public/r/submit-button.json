@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "submit-button",
   "registryDependencies": [
-    "button",
-    "form-context"
+    "https://yf-ui.vercel.app/r/button.json",
+    "https://yf-ui.vercel.app/r/form-context.json"
   ],
   "files": [
     {
