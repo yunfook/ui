@@ -1,5 +1,6 @@
 import * as React from "react"
 import { createFileRoute } from "@tanstack/react-router"
+import { InstallCommand } from "@/components/combo/install-command"
 
 import { Button } from "@/components/ui/button"
 import { CodeBlock } from "@/components/ui/code-block"
@@ -38,6 +39,7 @@ function SignaturePadPage() {
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <div>
         <h1 className="text-2xl font-bold">SignaturePad</h1>
+        <InstallCommand />
         <p className="text-sm text-muted-foreground">
           Bare canvas primitive. Compose your own controls via the imperative
           ref API. For an upload-ready dialog, see{" "}

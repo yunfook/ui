@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { InstallCommand } from "@/components/combo/install-command"
 
 import { CodeBlock } from "@/components/ui/code-block"
 import { Hyperlink } from "@/components/ui/hyperlink"
@@ -28,6 +29,7 @@ function HyperlinkPage() {
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <div>
         <h1 className="text-2xl font-bold">Hyperlink</h1>
+        <InstallCommand />
         <p className="text-sm text-muted-foreground">
           Decorated inline text link. Spreads native{" "}
           <code className="text-foreground">&lt;a&gt;</code> attrs (

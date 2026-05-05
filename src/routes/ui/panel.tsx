@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { InstallCommand } from "@/components/combo/install-command"
 
 import { Button } from "@/components/ui/button"
 import { CodeBlock } from "@/components/ui/code-block"
@@ -52,6 +53,7 @@ function PanelPage() {
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <div>
         <h1 className="text-2xl font-bold">Panel</h1>
+        <InstallCommand />
         <p className="text-sm text-muted-foreground">
           Right-anchored side panel with predefined{" "}
           <code className="text-foreground">size</code> variants and an

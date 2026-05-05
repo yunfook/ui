@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
+import { InstallCommand } from "@/components/combo/install-command"
 import { CodeBlock } from '@/components/ui/code-block'
 import { Row, RowItem } from '@/components/ui/row'
 import { Switch } from '@/components/ui/switch'
@@ -28,6 +29,7 @@ function SwitchPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <h1 className="text-2xl font-bold">Switch</h1>
+      <InstallCommand />
       <Row>
         <RowItem main>
           <div className="flex flex-col gap-5 rounded-xl border border-border bg-muted/30 p-6">

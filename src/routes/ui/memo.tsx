@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { InstallCommand } from "@/components/combo/install-command"
 
 import { CodeBlock } from "@/components/ui/code-block"
 import { Memo, MemoItem, MemoTitle } from "@/components/ui/memo"
@@ -46,6 +47,7 @@ function MemoPage() {
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <div>
         <h1 className="text-2xl font-bold">Memo</h1>
+        <InstallCommand />
         <p className="text-sm text-muted-foreground">
           A grouped memo surface with multiple titled sections. Pass{" "}
           <code className="text-foreground">data</code> for plug-and-use, or

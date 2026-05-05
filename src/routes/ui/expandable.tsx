@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { InstallCommand } from "@/components/combo/install-command"
 
 import { CodeBlock } from '@/components/ui/code-block'
 import { Row, RowItem } from '@/components/ui/row'
@@ -119,6 +120,7 @@ function ExpandablePage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <h1 className="text-2xl font-bold">Expandable</h1>
+      <InstallCommand />
       <p className="text-muted-foreground">
         Master-detail table row. Expand a parent row to reveal a nested
         sub-table (or any other content). Click the row or chevron to toggle.

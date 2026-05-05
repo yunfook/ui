@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
+import { InstallCommand } from "@/components/combo/install-command"
 import { useQuery } from '@tanstack/react-query'
 
 import { CodeBlock } from '@/components/ui/code-block'
@@ -69,6 +70,7 @@ function ListPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <h1 className="text-2xl font-bold">List</h1>
+      <InstallCommand />
       <Row>
         <RowItem main>
           <div className="flex flex-col gap-6 rounded-xl border border-border bg-background p-6">

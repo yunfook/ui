@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { InstallCommand } from "@/components/combo/install-command"
 import { CodeBlock } from "@/components/ui/code-block";
 import { Row, RowItem } from "@/components/ui/row";
 
@@ -21,6 +22,7 @@ function RowPage() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col gap-6 p-8">
       <h1 className="text-2xl font-bold">Row</h1>
+      <InstallCommand />
       <Row style={{ width: "400px" }}>
         <RowItem width="200px">
           <div className="flex flex-col gap-4">
